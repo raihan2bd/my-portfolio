@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="mt-20">
+        <main className="mt-20 bg-gradient-to-bl from-sky-950 via-gray-950 to-black">
           {children}
         </main>
       </body>
