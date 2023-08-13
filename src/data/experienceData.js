@@ -1,0 +1,45 @@
+export const experienceData = [
+  {
+    id: "e1",
+    thumb: "/images/personal-project.jpg",
+    title: "Full-stack Developer",
+    subTitle: "Highlighted Personal Projects",
+    startDate: "Jan 2019",
+    endDate: "Present",
+    location: "remote",
+    exp: [
+      "Successfully architecting and developing web applications across the tech spectrum: HTML5/CSS3, JavaScript, React/Redux, Ruby on Rails, Node.js, and Golang (Go).",
+      "Collaborating seamlessly with cross-functional, remote teams to ensure on-time project delivery.",
+      "Enriching my skill set in response to evolving industry landscapes, staying ahead of the curve.",
+      "Demonstrable expertise in completing a diverse array of 40+ projects, spanning various domains and complexities.",
+    ],
+  },
+  {
+    id: "e2",
+    thumb: "/images/microverse.jpg",
+    title: "MICROVERSE",
+    subTitle: "Student Mentor(Part-Time)",
+    startDate: "November 2022",
+    endDate: "Present",
+    location: "remote",
+    exp: [
+      "Mentoring junior web developers, providing technical support via code reviews, yielding a 20% code quality enhancement and improved overall performance.",
+      "Innovating code organization, leading to a 15% reduction in bug occurrences.",
+      "Offered motivational advice and tips to junior developers to foster a positive, sustainable work environment, demonstrating excellent interpersonal and communication skills to maintain longevity in the program through 1:1 Zoom calls.",
+    ],
+  },
+  {
+    id: "e3",
+    thumb: "/images/freelancer.jpg",
+    title: "Freelance",
+    subTitle: "Freelance Graphic Designer(Part-Time)",
+    startDate: "December 2017",
+    endDate: "Present",
+    location: "remote",
+    exp: [
+      "Proficiently handling a variety of design categories, including Logo design, Banner design, Illustration, Web template design, Business card design, and more.",
+      "Delivering tailored design solutions to 30+ clients, consistently surpassing their requirements and achieving high satisfaction rates.",
+      "Developing strong communication skills, facilitating effective client collaboration, and consistently meeting project requirements before deadlines, while continuing to excel in this role.",
+    ],
+  },
+];

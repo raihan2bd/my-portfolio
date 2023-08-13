@@ -1,4 +1,4 @@
-import { mySkills } from "@/deta/skills";
+import { mySkills } from "@/data/skills";
 import Image from "next/image";
 
 const Skills = () => {
@@ -14,6 +14,7 @@ const Skills = () => {
             src={item.image}
             width={32}
             height={32}
+            alt={item.title}
           />}
           <span className="bg-sky-950 block px-2 py-1 h-full">{item.title}</span>
         </li>
