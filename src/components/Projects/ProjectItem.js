@@ -3,13 +3,13 @@ import Link from "next/link";
 
 const ProjectItem = ({title, image, description, tags, projectDemo, projectSource }) => {
   return (
-    <li className="w-[400px] max-w-full border rounded-lg border-sky-950 p-4 flex flex-col gap-3 bg-black/50">
+    <li className="w-[400px] max-w-full border rounded-lg border-sky-950 p-4 flex flex-col gap-3 bg-black/50 flex-grow">
         <div className="">
           <Image
-            className="rounded-lg min-h-[200px]"
+            className="rounded-lg min-h-[200px] mx-auto"
             src={image}
-            width={400}
-            height={400}
+            width={767}
+            height={767}
             alt={title}
           />
         </div>

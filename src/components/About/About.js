@@ -1,15 +1,17 @@
 import Link from "next/link";
 import SocialKit from "../SocialKit";
 import Skills from "./Skills";
+import Experiences from "./Experiences";
+import Educations from "./Educations";
 
 const About = () => {
   return (
-    <section id="about" className="p-6">
+    <section id="about" className="p-4 md:p-6">
       <h2 className="text-center text-sky-400 p-3 w-fit border-b-2 border-orange-500 text-2xl font-bold mx-auto my-6">
         About Me
       </h2>
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1 bg-black/50 border border-sky-900 p-6 rounded-lg flex flex-col justify-between">
+        <div className="flex-1 bg-black/50 border border-sky-950 p-4 rounded-lg flex flex-col justify-between">
           <p className="">
             As a passionate software developer, I have the skills to bring your
             visions to life! Whether it's crafting innovative products,
@@ -41,11 +43,13 @@ const About = () => {
           <Link className="my-4 me-4 ms-auto w-fit block px-6 py-3 border border-orange-400 bg-orange-500 text-white rounded" href="https://docs.google.com/document/d/1PGWL0jk5WAQhQOC9JTuzHcZXEBQesjFmKa0Nn0ptxV0/edit?usp=sharing">GET MY RESUME</Link>
           </div>
         </div>
-        <div className="flex-1 bg-black/50 p-4 rounded-lg border border-sky-900">
+        <div className="flex-1 bg-black/50 p-4 rounded-lg border border-sky-950">
           <h3 className="w-fit mx-auto text-lg font-bold text-orange-500 py-2 border-b-2 border-sky-400">Skills I Have</h3>
           <Skills />
         </div>
       </div>
+      <Experiences />
+      <Educations />
     </section>
   );
 };
