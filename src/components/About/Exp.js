@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { generateUniqueId } from "@/helpers/helpers";
 
 const Exp = ({ exp }) => {
   return (
@@ -14,7 +15,7 @@ const Exp = ({ exp }) => {
       </div>
       <ul className="list-disc list-inside md:ps-4">
         {exp.exp.map(item => (
-          <li className="my-4">{item}</li>
+          <li key={generateUniqueId()} className="my-4">{item}</li>
         ))}
       </ul>
     </li>
