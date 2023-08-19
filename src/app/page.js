@@ -1,12 +1,15 @@
 import About from "@/components/About/About";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects/Projects";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Projects />
+      <Suspense fallback={<div className="text-center text-2xl">loading...</div>}>
+        <Projects />
+      </Suspense>
       <About />
       <section
         id="contact"
