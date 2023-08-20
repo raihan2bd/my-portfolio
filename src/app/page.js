@@ -1,6 +1,7 @@
-import About from "@/components/About/About";
 import Hero from "@/components/Hero";
 import FeatureProjects from "@/components/Projects/FeatureProjects";
+import About from "@/components/About/About";
+import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
   return (
@@ -8,12 +9,7 @@ export default function Home() {
       <Hero />
       <FeatureProjects />
       <About />
-      <section
-        id="contact"
-        className="h-screen flex flex-col justify-center items-center"
-      >
-        Hello from Contact
-      </section>
+      <Contact />
     </>
   );
 }
