@@ -3,6 +3,9 @@ import SocialKit from "../SocialKit";
 import Skills from "./Skills";
 import Experiences from "./Experiences";
 import Educations from "./Educations";
+import Recomandation from "./Recomandation";
+import { Suspense } from "react";
+import Spinner from "../UI/Spinner";
 
 const About = () => {
   return (
@@ -50,6 +53,9 @@ const About = () => {
       </div>
       <Experiences />
       <Educations />
+      <Suspense fallback={<div className="min-h[100px]"><Spinner /></div>}>
+        <Recomandation />
+      </Suspense>
     </section>
   );
 };

@@ -12,8 +12,6 @@ const ContactForm = ({ formId }) => {
     );
   }
 
-  console.log(formState);
-
   const labelClasses = "block mb-2 text-sm font-medium text-gray-300";
   const inputClasses =
     "block w-full p-2.5 border rounded-lg sm:text-md bg-white/5 border-sky-950/60 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500";

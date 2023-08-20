@@ -3,7 +3,7 @@
     "_id": "1",
     "title": "HungryHub",
     "image": "https://user-images.githubusercontent.com/35267447/223940500-3aea07b1-4bc6-4705-ae49-e64f96544b44.PNG",
-    "description": "Hungry Hub is an online platform for food ordering built with React, Redux, and Firebase. Users can browse menus, add food items to their cart, and securely pay for their order. The platform provides order tracking and home delivery services to ensure a hassle-free experience.",
+    "description": "Hungry Hubis an online platform for food ordering built with React, Redux, and Firebase. Users can browse menus, add food items to their cart, and securely pay for their order. The platform provides order tracking and home delivery services to ensure a hassle-free experience.",
     "tags": ["Html", "Css", "JavaScript", "React", "Firebase"],
     "projectDemo": "https://github.com/raihan2bd/hungryhub",
     "projectSource": "https://github.com/raihan2bd/hungryhub",
