@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="bg-sky-950/20 w-screen backdrop-blur-sm flex flex-col md:justify-center items-center py-16">
         <div className="max-w-full md:w-[95%] lg:w-[75%] bg-black/70 text-center py-6 px-4 rounded-lg flex flex-col gap-4">
           <h2 className="text-3xl md:text-5xl font-bold">
-            Hello! I'm <span className="text-orange-500">Abu Raihan</span>,
+            Hello! I&apos;m <span className="text-orange-500">Abu Raihan</span>,
             <br />
             <span className="text-sky-400 text-2xl md:text-3xl">
               <TypeAnimation

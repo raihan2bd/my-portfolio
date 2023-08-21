@@ -61,7 +61,7 @@ const About = () => {
         >
           <p className="">
             As a passionate software developer, I have the skills to bring your
-            visions to life! Whether it's crafting innovative products,
+            visions to life! Whether it&apos;s crafting innovative products,
             designing enticing features, or building captivating websites, I am
             here to assist you every step of the way.
             <span className="p-4 block"></span>
@@ -76,7 +76,7 @@ const About = () => {
             digital experiences.
             <span className="p-4 block"></span>
             If my work resonates with you and you have a coding project in mind,
-            I wholeheartedly encourage you to get in touch. Let's collaborate
+            I wholeheartedly encourage you to get in touch. Let&apos;s collaborate
             and turn your ideas into remarkable realities! Together, we can
             create meaningful solutions that leave a lasting impression on your
             audience.
