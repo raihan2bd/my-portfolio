@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <FeatureProjects baseURL={process.env.BASE_URL} />
+      <FeatureProjects />
       <About />
       <Contact />
     </>

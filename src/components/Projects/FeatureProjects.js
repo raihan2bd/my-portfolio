@@ -1,6 +1,7 @@
 import Projects from "./Projects";
 
-const fetchFeaturesProjects = async ({baseURL}) => {
+const fetchFeaturesProjects = async () => {
+  const baseURL = process.env.BASE_URL
   const response = await fetch(
     `${baseURL}/api/projects/feature`,
     {
