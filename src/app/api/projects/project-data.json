@@ -5,8 +5,8 @@
     "image": "https://user-images.githubusercontent.com/35267447/223940500-3aea07b1-4bc6-4705-ae49-e64f96544b44.PNG",
     "description": "Hungry Hubis an online platform for food ordering built with React, Redux, and Firebase. Users can browse menus, add food items to their cart, and securely pay for their order. The platform provides order tracking and home delivery services to ensure a hassle-free experience.",
     "tags": ["Html", "Css", "JavaScript", "React", "Firebase"],
-    "projectDemo": "https://github.com/raihan2bd/hungryhub",
-    "projectSource": "https://github.com/raihan2bd/hungryhub",
+    "projectDemo": "https://hungry-hub.onrender.com/",
+    "projectSource": "https://github.com/raihan2bd/hungry-hub",
     "isFeatured": true
   },
   {
@@ -15,8 +15,8 @@
     "image": "https://user-images.githubusercontent.com/35267447/257567388-16d64fa7-4149-48a1-a480-05dfa0ae4efb.PNG",
     "description": "Resort Booking: Your gateway to dream resorts. Discover, book, and manage your ideal getaway effortlessly with our user-friendly web app. Access comprehensive resort details, amenities, and real-time availability to plan memorable journeys hassle-free",
     "tags": ["Html", "Css", "JavaScript", "React", "Ruby on Rails"],
-    "projectDemo": "https://github.com/raihan2bd/hungryhub",
-    "projectSource": "https://github.com/raihan2bd/hungryhub",
+    "projectDemo": "https://resort-booking-front-end-c8l1.onrender.com/",
+    "projectSource": "https://github.com/raihan2bd/resort-booking-front-end",
     "isFeatured": true
   },
   {
@@ -25,8 +25,47 @@
     "image": "https://user-images.githubusercontent.com/35267447/223337938-c8ab34f0-20c6-4d8e-b47a-10558d3c7beb.PNG",
     "description": "Hotel Bookings full-stack project built using Go and postgresql is likely a web application that allows users to search for available hotels, view room details, and make reservations. It may include features such as user authentication, and integration with third-party APIs for displaying hotel information and availability.",
     "tags": ["Html", "Css", "JavaScript", "Golang", "PostgreSQL"],
-    "projectDemo": "https://github.com/raihan2bd/hungryhub",
-    "projectSource": "https://github.com/raihan2bd/hungryhub",
+    "projectSource": "https://github.com/raihan2bd/hotel-bookings",
+    "isFeatured": true
+  },
+  {
+    "_id": "5",
+    "title": "Weather APP",
+    "image": "https://user-images.githubusercontent.com/35267447/217789912-ead664b3-086f-4de2-8df8-e0229f60ae8a.PNG",
+    "description": "Weather-Forecast is a Microverse React capstone project that allows users to view a list of countries in a selected region along with country details. Additionally, users can also view the weather information for a selected country, providing a comprehensive picture of weather patterns and travel information for their destination of interest.",
+    "tags": ["Html", "Css", "JavaScript", "React", "Redux"],
+    "projectDemo": "https://weather-forecast-0xbe.onrender.com/",
+    "projectSource": "https://github.com/raihan2bd/weather-forecast",
+    "isFeatured": true
+  },
+  {
+    "_id": "6",
+    "title": "Todo List",
+    "image": "https://raihan2bd.github.io/portfolio/images/todo-list-js.png",
+    "description": "This is A simple but effective and responsive (mobile first) Microverse exercise project. To-do list is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.",
+    "tags": ["Html", "Css", "JavaScript"],
+    "projectDemo": "https://raihan2bd.github.io/Todo-List/",
+    "projectSource": "https://github.com/raihan2bd/Todo-List",
+    "isFeatured": true
+  },
+  {
+    "_id": "7",
+    "title": "Full-Stack Bootcamp",
+    "image": "https://raihan2bd.github.io/portfolio/images/code-with-raihan-js.png",
+    "description": "This is A simple but effective and responsive (mobile first) Microverse exercise project. To-do list is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.",
+    "tags": ["Html", "Css", "JavaScript"],
+    "projectDemo": "https://raihan2bd.github.io/code-with-raihan/",
+    "projectSource": "https://github.com/raihan2bd/code-with-raihan/",
+    "isFeatured": true
+  },
+  {
+    "_id": "4",
+    "title": "RSL Media",
+    "image": "https://raw.githubusercontent.com/raihan2bd/js-capstone/main/src/assets/img/home.png",
+    "description": "The RSL Media project is a Microverse group project that offers users an online entertainment streaming source for TV shows and movies. The project leverages an external tvmaze API service to preserve data related to various TV shows and movies. The platform allows users to add likes to their favorite shows and add comments to share their thoughts with other users. Additionally, users can reserve a show they want to watch later. Overall, the project provides a streamlined and convenient way for users to discover and enjoy their favorite TV shows and movies while engaging with a community of fellow enthusiasts.",
+    "tags": ["Html", "Css", "JavaScript"],
+    "projectDemo": "https://raihan2bd.github.io/js-capstone/",
+    "projectSource": "https://github.com/raihan2bd/js-capstone",
     "isFeatured": true
   }
 ]

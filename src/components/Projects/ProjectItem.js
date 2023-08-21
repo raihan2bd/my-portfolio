@@ -32,20 +32,20 @@ const ProjectItem = ({title, image, description, tags, projectDemo, projectSourc
           {description}
         </p>
         <div className="flex flex-row justify-between mt-4 md:mt-auto">
-          <Link
+          {projectDemo && <Link
             className="block rounded bg-sky-800 text-sky-200 hover:bg-orange-500 hover:text-white text-sm px-4 py-2"
             href={projectDemo}
             target="_blank"
           >
             Project Demo
-          </Link>
-          <Link
+          </Link>}
+          {projectSource && <Link
             className="block rounded bg-sky-800 text-sky-200 hover:bg-orange-500 hover:text-white text-sm px-4 py-2"
             href={projectSource}
             target="_blank"
           >
             Project Source
-          </Link>
+          </Link>}
         </div>
     </motion.li>
   );

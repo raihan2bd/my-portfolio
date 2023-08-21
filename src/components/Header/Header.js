@@ -65,7 +65,7 @@ const Header = () => {
         <Link href="/" className="text-3xl font-bold animate-slide-left"><span className="text-white">Abu </span><span className="text-sky-400">Raihan</span></Link>
       </div>
       <nav className={navClasses}>
-        <ul className="flex gap-3 flex-col animate-slide-down md:animate-none mt-6 p-4 md:flex-row md:mt-0 md:p-0">
+        <ul className="flex gap-3 flex-col animate-slide-left md:animate-none mt-6 p-4 md:flex-row md:mt-0 md:p-0">
           <li
             className={`${navLinkClasses}${activeNavItem === 'home'? ' bg-sky-900/50 text-white': ''}`}
             onClick={() => hideNavHandler("home")}
