@@ -22,7 +22,7 @@ const Hero = () => {
             <span className="text-sky-400 text-2xl md:text-3xl">
               <TypeAnimation
                 sequence={[
-                  "Full-stack Web Develoer!",
+                  "Full-stack Web Developer!",
                   2000,
                   "Graphic Designer!",
                   2000,
