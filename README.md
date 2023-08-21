@@ -5,7 +5,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [ Portfolio ](#-portfolio-)
+- [📖 About the Project](#about-project)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -46,11 +46,14 @@ Explore my impressive portfolio showcasing a range of web development projects c
 
 ### Key Features <a name="key-features"></a>
 
-- User can see about author including author's projects, skills and experiences.
+- Users can see about the author including the author's projects, skills, and experiences.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
+![Capture1](https://github.com/raihan2bd/my-portfolio/assets/35267447/4696d55e-27c2-433d-a462-61d79169f987)
+
+![Capture2](https://github.com/raihan2bd/my-portfolio/assets/35267447/a6fe54ae-376c-4ab1-aca0-f95750187f34)
 
 - [Live Demo Link](https://portfolio-raihan2bd.vercel.app/)
 
@@ -62,7 +65,7 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+To run this project you need:
 - First of all, Make sure you have installed [NodeJs](https://nodejs.org).
 - Then make sure you have installed [Nextjs](https://nextjs.org/) on your local machine if you want to use this project locally.
 
@@ -73,11 +76,13 @@ In order to run this project you need:
 git clone https://github.com/raihan2bd/my-portfolio.git
 ```
 - You need to create a `.env.local` file to your root directory then add two environment variables into the file called `BASE_URL` and `FORM_ID` to get the form id kindly visit [FormSpree](https://formspree.io/)
+![Capture](https://github.com/raihan2bd/my-portfolio/assets/35267447/bb21aeb1-3f20-4059-a3b5-9837bcf75673)
+
 
 
 ### Install
 
-- To install all the npm packages navigate the folder address on your terminal and enter the below command ⬇️
+- To install all the npm packages navigate to the folder address on your terminal and enter the below command ⬇️
 ``` bash
 npm install
 ```
@@ -116,7 +121,7 @@ You can visit the app using [Vercel](https://vercel.com/)
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **I will add MongoDB database to manage all project data**
-- [ ] **Add more end point to the api section including authentication**
+- [ ] **Add more endpoints to the API section including authentication**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
