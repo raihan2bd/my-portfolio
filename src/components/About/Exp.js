@@ -27,7 +27,7 @@ const Exp = ({ exp }) => {
     if (inView) {
       myController.start("visible");
     }
-  }, [inView]);
+  }, [inView, myController]);
   return (
     <motion.li variants={expContainer}
     initial="hidden"

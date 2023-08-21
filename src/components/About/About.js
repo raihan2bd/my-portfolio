@@ -39,7 +39,7 @@ const About = () => {
     if (inView) {
       myController.start("visible");
     }
-  }, [inView]);
+  }, [inView, myController]);
 
   return (
     <section id="about" className="p-4 md:p-6">

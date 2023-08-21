@@ -25,7 +25,7 @@ const Projects = ({ projects }) => {
     if (inView) {
       mainControll.start("visible");
     }
-  }, [inView]);
+  }, [inView, mainControll]);
 
   let projectsContent = (
     <p className="text-center text-orange-300 p-4 shadow">

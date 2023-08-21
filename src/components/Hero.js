@@ -45,14 +45,14 @@ const Hero = () => {
             <p className="flex-auto p-4 border-2 border-sky-950 bg-sky-950/30 text-slate-300 rounded-xl md:w-min animate-bounce">
               Greetings! I am a passionate software developer who takes great
               delight in crafting innovative solutions that bring your ideas to
-              life. Whether it's an impressive product, a cutting-edge feature,
-              or a captivating website, I'm here to assist you every step of the
+              life. Whether it&apos;s an impressive product, a cutting-edge feature,
+              or a captivating website, I&apos;m here to assist you every step of the
               way. My diverse portfolio showcases a range of successful projects
               and vast experience. Each project reflects my commitment to
               excellence and my passion for creating impactful digital
               solutions. If you find yourself drawn to my work and have a coding
               project that requires finesse, please do not hesitate to reach
-              out. Together, let's turn your visions into reality! I'm excited
+              out. Together, let&apos;s turn your visions into reality! I&apos;m excited
               to collaborate and create meaningful solutions that leave a
               lasting impact.
             </p>

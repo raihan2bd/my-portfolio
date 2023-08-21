@@ -3,7 +3,7 @@ import { FaGithub, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'
 const SocialKit = () => (
   <div className="flex flex-col items-center gap-3">
     <h3 className="text-lg border-orange-500 border-b-2 w-fit text-sky-400">
-      Let's Connect
+      Let&apos;s Connect
     </h3>
     <ul className="flex flex-row gap-3 mt-2 text-xl">
       <li>
