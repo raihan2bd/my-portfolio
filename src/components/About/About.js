@@ -104,8 +104,6 @@ const About = () => {
       <Experiences />
       <Educations />
       <Recomandation />
-      {/* <Suspense fallback={<div className="min-h[100px]"><Spinner /></div>}>
-      </Suspense> */}
     </section>
   );
 };

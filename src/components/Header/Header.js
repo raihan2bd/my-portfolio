@@ -21,6 +21,30 @@ const Header = () => {
     setActiveNavItem(navSection);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "projects", "about", "contact"];
+
+      const activeSection = sections.find((section) => {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+
+      if (activeSection) {
+        setActiveNavItem(activeSection);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   let navClasses =
     "fixed top-20 bottom-0 left-0 right-0 z-10 backdrop-blur h-screen bg-slate-950/95 md:static md:top-0 md:bottom-0 md:left-0 md:right-0 md:h-fit md:bg-inherit";
   if (!showNav) {
