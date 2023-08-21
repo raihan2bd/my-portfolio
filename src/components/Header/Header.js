@@ -55,14 +55,14 @@ const Header = () => {
 
   return (
     <header className="z-20 flex items-center justify-between p-4 h-20 fixed top-0 left-0 right-0 border-sky-900 border-b backdrop-blur md:px-6">
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-3 items-center animate-slide-left">
         <button
           className="text-2xl border border-sky-400 md:hidden h-fit"
           onClick={toggleNavHandler}
         >
           {showNav ? <BiX /> : <BiMenu />}
         </button>
-        <Link href="/" className="text-3xl font-bold animate-slide-left"><span className="text-white">Abu </span><span className="text-sky-400">Raihan</span></Link>
+        <Link href="/" className="text-3xl font-bold"><span className="text-white">Abu </span><span className="text-sky-400">Raihan</span></Link>
       </div>
       <nav className={navClasses}>
         <ul className="flex gap-3 flex-col animate-slide-left md:animate-none mt-6 p-4 md:flex-row md:mt-0 md:p-0">
