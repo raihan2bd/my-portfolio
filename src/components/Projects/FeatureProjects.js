@@ -3,7 +3,7 @@ import Projects from "./Projects";
 const fetchFeaturesProjects = async () => {
   const baseURL = process.env.BASE_URL
   const response = await fetch(
-    `${baseURL}/api/projects/feature`,
+    `/api/projects/feature`,
     {
       next: {
         revalidate: 60,
