@@ -1,9 +1,39 @@
+'use client'
+
 import Image from "next/image";
+import { useRef, useEffect } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 import { generateUniqueId } from "@/helpers/helpers";
 
+const expContainer = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+
 const Exp = ({ exp }) => {
+  const exRef = useRef();
+  const inView = useInView(exRef);
+  const myController = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      myController.start("visible");
+    }
+  }, [inView]);
   return (
-    <li className="rounded-lg bg-sky-950/40 p-4 w-[100%] md:w-[48%] text-white/70 flex-grow flex flex-col justify-between">
+    <motion.li variants={expContainer}
+    initial="hidden"
+    animate={myController}
+    transition={{ duration: 0.5, delay: 0.2 }}
+    ref={exRef} className="rounded-lg bg-sky-950/40 p-4 w-[100%] md:w-[48%] text-white/70 flex-grow flex flex-col justify-between">
       <div className="flex flex-row gap-3 items-start text-sm w-full">
         <Image src={exp.thumb} width={40} height={40} alt={exp.title} />
         <div className="w-full">
@@ -18,7 +48,7 @@ const Exp = ({ exp }) => {
           <li key={generateUniqueId()} className="my-4">{item}</li>
         ))}
       </ul>
-    </li>
+    </motion.li>
   );
 };
 

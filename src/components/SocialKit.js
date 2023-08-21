@@ -8,7 +8,7 @@ const SocialKit = () => (
     <ul className="flex flex-row gap-3 mt-2 text-xl">
       <li>
         <a
-          className="rounded-[50%] p-2 border-sky-500 border block hover:bg-sky-900" target="_blank"
+          className="rounded-[50%] p-2 border-sky-500 border block hover:bg-sky-900 hover:animate-rotate" target="_blank"
           href="https://github.com/raihan2bd"
         >
           <FaGithub />
@@ -16,7 +16,7 @@ const SocialKit = () => (
       </li>
       <li>
         <a
-          className="rounded-[50%] p-2 border-sky-500 border block hover:bg-sky-900" target="_blank"
+          className="rounded-[50%] p-2 border-sky-500 border block hover:bg-sky-900 hover:animate-rotate" target="_blank"
           href="https://www.linkedin.com/in/raihan2bd"
         >
           <FaLinkedin />
@@ -24,7 +24,7 @@ const SocialKit = () => (
       </li>
       <li>
         <a
-          className="rounded-[50%] p-2 border-sky-500 border block hover:bg-sky-900" target="_blank"
+          className="rounded-[50%] p-2 border-sky-500 border block hover:bg-sky-900 hover:animate-rotate" target="_blank"
           href="https://twitter.com/raihan2bd"
         >
           <FaTwitter />
@@ -32,7 +32,7 @@ const SocialKit = () => (
       </li>
       <li>
         <a
-          className="rounded-[50%] p-2 border-sky-500 border block hover:bg-sky-900" target="_blank"
+          className="rounded-[50%] p-2 border-sky-500 border block hover:bg-sky-900 hover:animate-rotate" target="_blank"
           href="https://www.facebook.com/raihan2bd/"
         >
           <FaFacebook />

@@ -1,12 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const item = {
+  hidden: { y: 100, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+}
 
 const ProjectItem = ({title, image, description, tags, projectDemo, projectSource }) => {
   return (
-    <li className="w-[400px] max-w-full border rounded-lg border-sky-950 p-4 flex flex-col gap-3 bg-black/50 flex-grow">
-        <div className="">
+    <motion.li className="w-[400px] max-w-full border rounded-lg border-sky-950 hover:border-sky-500 p-4 flex flex-col gap-3 bg-black/50 flex-grow" variants={item}>
+        <div className="overflow-hidden">
           <Image
-            className="rounded-lg min-h-[200px] mx-auto"
+            className="rounded-lg min-h-[200px] mx-auto hover:scale-105 transition-transform"
             src={image}
             width={767}
             height={767}
@@ -38,7 +47,7 @@ const ProjectItem = ({title, image, description, tags, projectDemo, projectSourc
             Project Source
           </Link>
         </div>
-    </li>
+    </motion.li>
   );
 };
 

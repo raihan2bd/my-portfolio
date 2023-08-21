@@ -1,20 +1,64 @@
+"use client";
+
 import Link from "next/link";
+import { useRef, useEffect } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
+
 import SocialKit from "../SocialKit";
 import Skills from "./Skills";
 import Experiences from "./Experiences";
 import Educations from "./Educations";
 import Recomandation from "./Recomandation";
-import { Suspense } from "react";
-import Spinner from "../UI/Spinner";
+
+const aboutContainer = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 100, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 const About = () => {
+  const myRef = useRef();
+  const inView = useInView(myRef);
+  const myController = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      myController.start("visible");
+    }
+  }, [inView]);
+
   return (
     <section id="about" className="p-4 md:p-6">
       <h2 className="text-center text-sky-400 p-3 w-fit border-b-2 border-orange-500 text-2xl font-bold mx-auto my-6">
         About Me
       </h2>
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1 bg-black/50 border border-sky-950 p-4 rounded-lg flex flex-col justify-between">
+
+      <motion.div
+        className="flex flex-col md:flex-row gap-6"
+        variants={aboutContainer}
+        initial="hidden"
+        animate={myController}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        ref={myRef}
+      >
+        <motion.div
+          className="flex-1 bg-black/50 border border-sky-950 p-4 rounded-lg flex flex-col justify-between"
+          variants={item}
+        >
           <p className="">
             As a passionate software developer, I have the skills to bring your
             visions to life! Whether it's crafting innovative products,
@@ -41,21 +85,27 @@ const About = () => {
             with you and making your projects a resounding success!
           </p>
           <div className="mt-auto">
-
-          <SocialKit />
-          <Link className="my-4 me-4 ms-auto w-fit block px-6 py-3 border border-orange-400 bg-orange-500 text-white rounded" href="https://docs.google.com/document/d/1PGWL0jk5WAQhQOC9JTuzHcZXEBQesjFmKa0Nn0ptxV0/edit?usp=sharing">GET MY RESUME</Link>
+            <SocialKit />
+            <Link
+              className="my-4 me-4 ms-auto w-fit block px-6 py-3 border border-orange-400 bg-orange-500 text-white rounded"
+              href="https://docs.google.com/document/d/1PGWL0jk5WAQhQOC9JTuzHcZXEBQesjFmKa0Nn0ptxV0/edit?usp=sharing"
+            >
+              GET MY RESUME
+            </Link>
           </div>
-        </div>
+        </motion.div>
         <div className="flex-1 bg-black/50 p-4 rounded-lg border border-sky-950">
-          <h3 className="w-fit mx-auto text-lg font-bold text-orange-500 py-2 border-b-2 border-sky-400">Skills I Have</h3>
+          <h3 className="w-fit mx-auto text-lg font-bold text-orange-500 py-2 border-b-2 border-sky-400">
+            Skills I Have
+          </h3>
           <Skills />
         </div>
-      </div>
+      </motion.div>
       <Experiences />
       <Educations />
-      <Suspense fallback={<div className="min-h[100px]"><Spinner /></div>}>
-        <Recomandation />
-      </Suspense>
+      <Recomandation />
+      {/* <Suspense fallback={<div className="min-h[100px]"><Spinner /></div>}>
+      </Suspense> */}
     </section>
   );
 };

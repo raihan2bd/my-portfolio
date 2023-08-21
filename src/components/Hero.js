@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="flex flex-col items-center overflow-hidden"
+      className="flex flex-col items-center overflow-hidden animate-slide-down"
       style={{
         backgroundImage: `url('/images/full-stack-developer.jpg')`,
         backgroundSize: "cover",
@@ -42,7 +42,7 @@ const Hero = () => {
                 alt="Abu Raihan full-stack developer"
               />
             </div>
-            <p className="flex-auto p-4 border-2 border-sky-950 bg-sky-950/30 text-slate-300 rounded-xl md:w-min">
+            <p className="flex-auto p-4 border-2 border-sky-950 bg-sky-950/30 text-slate-300 rounded-xl md:w-min animate-bounce">
               Greetings! I am a passionate software developer who takes great
               delight in crafting innovative solutions that bring your ideas to
               life. Whether it's an impressive product, a cutting-edge feature,
