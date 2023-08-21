@@ -1,8 +1,8 @@
 import Projects from "./Projects";
 
-const fetchFeaturesProjects = async () => {
+const fetchFeaturesProjects = async ({baseURL}) => {
   const response = await fetch(
-    `http://localhost:3000/api/projects/feature`,
+    `${baseURL}/api/projects/feature`,
     {
       next: {
         revalidate: 60,
