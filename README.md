@@ -51,9 +51,12 @@ Explore my impressive portfolio showcasing a range of web development projects c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-![Capture1](https://github.com/raihan2bd/my-portfolio/assets/35267447/4696d55e-27c2-433d-a462-61d79169f987)
+![portfolioDemo](https://user-images.githubusercontent.com/35267447/262198857-bdf601e1-9439-4f79-972a-0ce5c477a8e9.PNG)
 
-![Capture2](https://github.com/raihan2bd/my-portfolio/assets/35267447/a6fe54ae-376c-4ab1-aca0-f95750187f34)
+![portfoliodemo2](https://user-images.githubusercontent.com/35267447/262199001-9d00bad1-c7f8-44e7-ab6e-65dd6b69108e.PNG)
+
+ 
+
 
 - [Live Demo Link](https://portfolio-raihan2bd.vercel.app/)
 
@@ -76,8 +79,9 @@ To run this project you need:
 git clone https://github.com/raihan2bd/my-portfolio.git
 ```
 - You need to create a `.env.local` file to your root directory then add two environment variables into the file called `BASE_URL` and `FORM_ID` to get the form id kindly visit [FormSpree](https://formspree.io/)
-![Capture](https://github.com/raihan2bd/my-portfolio/assets/35267447/bb21aeb1-3f20-4059-a3b5-9837bcf75673)
 
+
+![Capture](https://user-images.githubusercontent.com/35267447/262199322-19c9fc2d-0f2a-4f99-88e2-d9ed31a64fa6.PNG)
 
 
 ### Install
