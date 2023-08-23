@@ -13,7 +13,7 @@ export const mySkills = [
         id: "f2",
         title: "Nextjs",
         image:
-          "images/next.svg",
+          "/images/nextjs.png",
       },
       {
         id: "f3",
@@ -115,7 +115,7 @@ export const mySkills = [
         id: "t3",
         title: "VS Code",
         image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+          "https://code.visualstudio.com/assets/images/code-stable.png",
       },
       {
         id: "t4",
