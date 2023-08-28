@@ -23,7 +23,7 @@ export const mySkills = [
       },
       {
         id: "f4",
-        title: "Tailwing CSS",
+        title: "Tailwind CSS",
         image:
           "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
       },
@@ -177,7 +177,7 @@ export const mySkills = [
       },
       {
         id: "f8",
-        title: "Problem-solving",
+        title: "Critical Thinking",
       },
     ],
   },
