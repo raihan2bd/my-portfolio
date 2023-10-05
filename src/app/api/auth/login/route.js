@@ -59,7 +59,8 @@ export async function POST(request) {
       role
     }
 
-    cookies().set('user', user, { expires: new Date(user.expiryTime) })
+    cookies().set('token', user.token, { expires: new Date(user.expiryTime) })
+    cookies().set('role', user.role, { expires: new Date(user.expiryTime) })
 
     return NextResponse.json({ message: "You have successfully logged in.", user });
   } catch (error) {
