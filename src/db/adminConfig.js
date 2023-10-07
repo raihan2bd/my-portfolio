@@ -38,4 +38,4 @@ export const adminConfig = alreadyCreatedAps.length === 0
 
 
 // export const db = admin.(app)
-// export const auth = getAuth(app)
+export const adminAuth = getAuth(adminConfig)

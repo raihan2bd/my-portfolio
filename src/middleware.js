@@ -1,25 +1,18 @@
-import { NextResponse, NextRequest } from "next/server";
-import { cookies } from "next/headers";
-import {auth } from "./db/dbconfig";
+import { NextResponse } from "next/server";
 
 export async function middleware(request) {
   const path = request.nextUrl.pathname;
 
-  const isPublicPath = path === "/login" || path === "/signup";
+  const isAdminPath = path === "/api/admin/create-project"
+  if(isAdminPath) {
+    const hasToken = request.cookies.has("token");
+    const hasRole = request.cookies.has('role')
+    if(!hasToken || !hasRole) {
+      return NextResponse.json({error: "Failed to authorize"}, {status: 401})
+    }
 
-  // const cookieStore = cookies();
-  // const hasToken = cookieStore.has('token')
-
-  const hasToken = request.cookies.has("token");
-
-  if (hasToken) {
-    const token = request.cookies.get("token");
-    console.log("i'm working")
-    try {
-      
-      const decodedToken = await auth.verifyIdToken(token);
-    } catch (error) {
-      console.log(error)
+    if (!request.cookies.get('token') || request.cookies.get('role').value !== 'admin') {
+      return NextResponse.json({error: "Request forbidden"}, {status: 403})
     }
   }
 }
@@ -28,7 +21,7 @@ export async function middleware(request) {
 export const config = {
   matcher: [
     "/api/projects/:path*",
-    "/api/create-project",
+    "/api/admin/create-project",
     "/api/auth/login",
     "/api/auth/signup",
   ],
