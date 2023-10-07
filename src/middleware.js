@@ -1,31 +1,35 @@
-import { NextResponse, NextRequest } from 'next/server';
-import { cookies } from 'next/headers';
+import { NextResponse, NextRequest } from "next/server";
+import { cookies } from "next/headers";
+import {auth } from "./db/dbconfig";
 
 export async function middleware(request) {
   const path = request.nextUrl.pathname;
 
-  const isPublicPath = path === '/login' || path === '/signup';
+  const isPublicPath = path === "/login" || path === "/signup";
 
-  const cookieStore = cookies();
-  const userCookie = cookieStore.get('user');
+  // const cookieStore = cookies();
+  // const hasToken = cookieStore.has('token')
 
-  if (userCookie) {
-    const user = JSON.parse(userCookie);
+  const hasToken = request.cookies.has("token");
 
-    console.log(user);
+  if (hasToken) {
+    const token = request.cookies.get("token");
+    console.log("i'm working")
+    try {
+      
+      const decodedToken = await auth.verifyIdToken(token);
+    } catch (error) {
+      console.log(error)
+    }
   }
-
-  console.log('i\'m working');
-
-  return NextResponse.json(userCookie?.value);
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
   matcher: [
-    '/api/projects/:path*',
-    '/api/create-project',
-    '/api/auth/login',
-    '/api/auth/signup',
+    "/api/projects/:path*",
+    "/api/create-project",
+    "/api/auth/login",
+    "/api/auth/signup",
   ],
 };

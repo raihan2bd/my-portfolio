@@ -18,8 +18,24 @@ const serviceAccount = {
   "universe_domain": "googleapis.com"
 };
 
+// if (!admin.apps.length) {
+//   const firebaseAdmin = admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount)
+//   });
+// }
+
+// export const adminConfig = admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
+
 export const adminConfig = alreadyCreatedAps.length === 0
     ? admin.initializeApp({
         credential: admin.credential.cert(serviceAccount)
       })
     : alreadyCreatedAps[0];
+
+// export const app = adminConfig.firestore()
+
+
+// export const db = admin.(app)
+// export const auth = getAuth(app)
