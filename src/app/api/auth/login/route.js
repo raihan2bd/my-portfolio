@@ -47,9 +47,6 @@ export async function POST(request) {
       if(docSnap.data() && docSnap.data().role !=="") {
         role = docSnap.data().role
       }
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
     }
 
     const user = {
