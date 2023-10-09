@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import { getDoc, doc } from "firebase/firestore";
-import { adminConfig, adminAuth } from "@/db/adminConfig";
+import { adminConfig, adminDB } from "@/db/adminConfig";
 import { db } from "@/db/dbconfig";
 
 export async function POST(request) {
-  if (!request.cookies.has('token')) return NextResponse.json({error: "Failed to authorization."})
+  if (!request.cookies.has("token"))
+    return NextResponse.json({ error: "Failed to authorization." });
 
-  const token = request.cookies.get('token')
+  const token = request.cookies.get("token");
   try {
     const decodedToken = await adminConfig.auth().verifyIdToken(token.value);
     const uid = decodedToken.user_id;
@@ -14,21 +15,42 @@ export async function POST(request) {
     const docRef = doc(db, "userRoles", uid);
     const docSnap = await getDoc(docRef);
 
-    if (docSnap.exists() && docSnap.data().role ==='admin') {
-      await adminAuth.setCustomUserClaims(uid, {role: 'admin'})
+
+    if(docSnap.exists()) {
+      if (docSnap.data().role !== "admin") {
+        return NextResponse.json({
+          error:
+            "Access denied. You don't have permission to perform this action.",
+        });
+    }
     } else {
-      return NextResponse.json({error: "Access denied. You don't have permission to perform this action."})
+      return NextResponse.json({
+        error:
+          "Access denied. You don't have permission to perform this action.",
+      });
     }
 
-    // new project validation
-    
+    // add project to the database
+    const reqBody = await request.json();
+    if (reqBody.length > 0) {
+      console.log("I'm working");
+    }
+    console.log(reqBody);
 
-    return NextResponse.json({message: "i'm from create new post working"})
+    const collectionRef = adminDB.collection("projects");
 
-    
+    const projectRef = await collectionRef.add(reqBody);
+
+    const response = {
+      project_id: projectRef.id,
+      message: "Successfully added new project!",
+    };
+
+    return NextResponse.json(response, { status: 201 });
   } catch (err) {
-    console.log(err)
-    return NextResponse.json({error: "Failed to create the project. Something went wrong."})
+    console.log(err);
+    return NextResponse.json({
+      error: "Failed to create the project. Something went wrong.",
+    });
   }
-
 }

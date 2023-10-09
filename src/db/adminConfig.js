@@ -39,3 +39,4 @@ export const adminConfig = alreadyCreatedAps.length === 0
 
 // export const db = admin.(app)
 export const adminAuth = getAuth(adminConfig)
+export const adminDB = adminConfig.firestore();
