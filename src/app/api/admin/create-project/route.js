@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getDoc, doc } from "firebase/firestore";
 import { adminConfig, adminDB } from "@/db/adminConfig";
 import { db } from "@/db/dbconfig";
+import { firestore } from "firebase-admin";
 
 export async function POST(request) {
   if (!request.cookies.has("token"))
@@ -32,14 +33,10 @@ export async function POST(request) {
 
     // add project to the database
     const reqBody = await request.json();
-    if (reqBody.length > 0) {
-      console.log("I'm working");
-    }
-    console.log(reqBody);
 
     const collectionRef = adminDB.collection("projects");
 
-    const projectRef = await collectionRef.add(reqBody);
+    const projectRef = await collectionRef.add({...reqBody, timestamp: firestore.FieldValue.serverTimestamp()});
 
     const response = {
       project_id: projectRef.id,
