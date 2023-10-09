@@ -6,8 +6,7 @@ export async function GET(request) {
     const collectionRef = adminDB.collection('projects');
     const query = collectionRef
     .where('isFeatured', '==', true)
-    .orderBy('timestamp', 'desc')
-    .limit(10);
+    .orderBy('timestamp', 'desc');
     const snapshot = await query.get()
     if (snapshot.empty) {
       return NextResponse.json([])
