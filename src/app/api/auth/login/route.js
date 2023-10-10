@@ -35,6 +35,7 @@ export async function POST(request) {
       email,
       password
     );
+    console.log(userCredential)
     const { uid, stsTokenManager } = userCredential.user;
     const token = stsTokenManager.accessToken
     const expiryTime = stsTokenManager.expirationTime
@@ -61,11 +62,25 @@ export async function POST(request) {
 
     return NextResponse.json({ message: "You have successfully logged in.", user });
   } catch (error) {
-    console.error("Error in API route:", error.message);
-    let errMsg = "Something went wrong! please try again";
-    if (error.message) {
-      errMsg = error.message;
+    if(error.code) {
+      let errorMessage = "";
+      switch (error.code) {
+        case "auth/invalid-login-credentials":
+          errorMessage = "User not found. Please check your email or password and try again.";
+          break;
+        case "auth/user-not-found":
+          errorMessage = "User not found. Please check your email and try again.";
+          break;
+        case "auth/wrong-password":
+          errorMessage = "Invalid password. Please try again.";
+          break;
+        default:
+          errorMessage = "An error occurred. Please try again later.";
+          break;
+      }
+
+      return NextResponse.json({error: errorMessage}, {status: 403})
     }
-    return NextResponse.error(errMsg, { statusCode: 500 });
+    return NextResponse.json({error: "Something went wrong please try again"}, {status: 500});
   }
 }
