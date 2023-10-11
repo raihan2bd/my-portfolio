@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
-
+import { getCookie } from "cookies-next";
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState('home');
+
+  const uid = getCookie('uid')
+  const role = getCookie('role')
 
   const toggleNavHandler = () => {
     setShowNav((prevState) => !prevState);
@@ -90,6 +93,14 @@ const Header = () => {
           >
             Contact
           </li>
+          {uid && role && (
+            <li
+            className="bg-red-500 text-white"
+            onClick={() => hideNavHandler("contact")}
+          >
+            Logout
+          </li>
+          )}
         </ul>
       </nav>
     </header>
