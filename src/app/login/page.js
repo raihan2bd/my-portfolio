@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import Spinner from '@/components/UI/Spinner'
 import axios from "axios";
 
@@ -10,6 +11,8 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const emailRef = useRef("")
   const passRef = useRef("")
+
+  const {re} = useRouter()
 
   const formSubmitHandler = async(e) => {
     e.preventDefault()
@@ -21,6 +24,7 @@ const Login = () => {
       }
       const response = await axios.post('/api/auth/login', data);
       setHasError(null)
+      redirect('/')
 
     } catch (err) {
       let errMsg = "Something went wrong. Please try again!"
