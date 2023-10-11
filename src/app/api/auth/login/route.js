@@ -35,7 +35,6 @@ export async function POST(request) {
       email,
       password
     );
-    console.log(userCredential)
     const { uid, stsTokenManager } = userCredential.user;
     const token = stsTokenManager.accessToken
     const expiryTime = stsTokenManager.expirationTime
