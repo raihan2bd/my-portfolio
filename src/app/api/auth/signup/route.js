@@ -41,10 +41,27 @@ export async function POST(request) {
     return NextResponse.json({ message: "Successfully signup", user_id: uid });
   } catch (error) {
     console.error("Error in API route:", error.message);
-    let errMsg = "Something went wrong! please try again";
-    if (error.message) {
-      errMsg = error.message;
+    let errMsg = "";
+    if (error.code) {
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          errMsg = "The provided email is already in use by an existing user. Each user must have a unique email."
+          break;
+        case "auth/email-already-exists":
+          errMsg =
+            "The provided email is already in use by an existing user. Each user must have a unique email.";
+          break;
+        case "auth/invalid-email":
+          errMsg =
+            "The provided value for the email user property is invalid. It must be a string email address.";
+          break;
+        default:
+          errMsg = "An error occurred. Please try again later.";
+          break;
+      }
+      return NextResponse.json({error: errMsg}, {status: 400})
     }
-    return NextResponse.error(errMsg, { statusCode: 500 });
+
+    return NextResponse.json({error: "Something went wrong! please try again"}, { status: 500 });
   }
 }
