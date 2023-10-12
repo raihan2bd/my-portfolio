@@ -60,7 +60,7 @@ export async function POST(request) {
       expires: new Date(user.expiryTime),
       sameSite: 'strict',
       path: '/',
-      httpOnly: true,
+      httpOnly: false,
     };
     
     cookies().set('token', user.token, cookieOptions);
