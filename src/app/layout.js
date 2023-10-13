@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
+import { ContextProvider } from "@/context/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,12 +16,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="w-full max-w-[1920px] mx-auto">
-          <Header />
-          <main className="mt-20 bg-gradient-to-bl from-sky-950 via-gray-950 to-black">
-            {children}
-          </main>
-        </div>
+        <ContextProvider>
+          <div className="w-full max-w-[1920px] mx-auto">
+            <Header />
+            <main className="mt-20 bg-gradient-to-bl from-sky-950 via-gray-950 to-black">
+              {children}
+            </main>
+          </div>
+        </ContextProvider>
       </body>
     </html>
   );
