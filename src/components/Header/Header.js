@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { BiMenu, BiX } from "react-icons/bi";
-import { getCookie } from "cookies-next";
 import axios from "axios";
+import { BiMenu, BiX } from "react-icons/bi";
+
+import { useGlobalState } from "@/context/store";
+
+
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState("home");
-  const [auth, setAuth] = useState({});
 
-  const uid = getCookie("uid");
-  const role = getCookie("role");
+  const {user} = useGlobalState()
 
   const toggleNavHandler = () => {
     setShowNav((prevState) => !prevState);
@@ -59,14 +60,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    const uid = getCookie("uid");
-    const role = getCookie("role");
-    if (role && uid) {
-      setAuth({uid, role});
-    }
-  }, [role, uid]);
 
   let navClasses =
     "fixed top-20 bottom-0 left-0 right-0 z-10 backdrop-blur h-screen bg-slate-950/95 md:static md:top-0 md:bottom-0 md:left-0 md:right-0 md:h-fit md:bg-inherit";
@@ -125,7 +118,7 @@ const Header = () => {
           >
             Contact
           </li>
-          {auth.role && auth.uid && (
+          {user.role && user.uid && (
             <li className="bg-red-500 text-white px-4 py-2 cursor-pointer" onClick={logoutHandler}>Logout</li>
           )}
         </ul>
