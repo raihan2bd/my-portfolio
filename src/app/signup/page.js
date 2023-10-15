@@ -1,16 +1,19 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import Spinner from '@/components/UI/Spinner'
 import axios from "axios";
+import { useGlobalState } from "@/context/store";
 
 const Signup = () => {
   const [hasError, setHasError] = useState(null)
   const [loading, setLoading] = useState(false)
   const emailRef = useRef("")
   const passRef = useRef("")
+
+  const {user} = useGlobalState()
 
   const formSubmitHandler = async(e) => {
     e.preventDefault()
@@ -35,6 +38,12 @@ const Signup = () => {
     }
     setLoading(false)
   }
+
+  useEffect(() => {
+    if(user.uid) {
+      redirect('/', 'replace')
+    } 
+  }, [user])
 
   if (loading) {
     return (<div className="w-598px max-w-[100%] pt-6 flex justify-center items-center min-h-[350px] max-h-[100%]"><Spinner /></div>)

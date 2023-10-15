@@ -40,7 +40,7 @@ const Login = () => {
   }
 
   useEffect(() => {
-    if (user.id) {
+    if (user.uid) {
       router.replace('/')
     }
   }, [user])
