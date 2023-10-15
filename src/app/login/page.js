@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Spinner from '@/components/UI/Spinner'
 import axios from "axios";
+import { useGlobalState } from "@/context/store";
 
 const Login = () => {
   const [hasError, setHasError] = useState(null)
@@ -13,6 +14,7 @@ const Login = () => {
   const passRef = useRef("")
 
   const router = useRouter()
+  const {user, dispatchAuth} = useGlobalState()
 
   const formSubmitHandler = async(e) => {
     e.preventDefault()
@@ -24,6 +26,7 @@ const Login = () => {
       }
       const response = await axios.post('/api/auth/login', data);
       setHasError(null)
+      dispatchAuth()
       router.replace('/')
 
     } catch (err) {
@@ -35,6 +38,12 @@ const Login = () => {
     }
     setLoading(false)
   }
+
+  useEffect(() => {
+    if (user.id) {
+      router.replace('/')
+    }
+  }, [user])
 
   if (loading) {
     return (<div className="w-598px max-w-[100%] pt-6 flex justify-center items-center min-h-[350px] max-h-[100%]"><Spinner /></div>)

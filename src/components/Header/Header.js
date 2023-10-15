@@ -12,7 +12,7 @@ const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState("home");
 
-  const {user} = useGlobalState()
+  const {user, dispatchAuth} = useGlobalState()
 
   const toggleNavHandler = () => {
     setShowNav((prevState) => !prevState);
@@ -30,7 +30,7 @@ const Header = () => {
   const logoutHandler = async() => {
     try {
       await axios.get('/api/auth/logout')
-      setAuth({})
+      dispatchAuth()
       setShowNav(false)
     } catch (error) {
       console.log(error)

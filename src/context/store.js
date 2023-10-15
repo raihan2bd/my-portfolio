@@ -1,45 +1,40 @@
-'use client'
+"use client";
 import React, { useEffect } from "react";
 import { getCookie } from "cookies-next";
 import { createContext, useState, useContext } from "react";
 
 export const AuthContext = createContext({});
 
+const getUser = () => {
+  const uid = getCookie('uid') || null;
+  const role = getCookie('role') || null;
+
+  return {uid, role}
+}
+
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({
-    uid: getCookie("uid") || null,
-    role: getCookie("role") || null,
+    uid: null,
+    role: null,
   });
 
+  const newUser = getUser()
+
+  const dispatchAuth = () => {
+    setUser(getUser())
+  }
+
   useEffect(() => {
-    // Monitor changes in cookies and update context if necessary
-    const handleCookieChange = () => {
-      const newUid = getCookie("uid") || null;
-      const newRole = getCookie("role") || null;
-
-      if (newUid !== user.uid || newRole !== user.role) {
-        setUser({ uid: newUid, role: newRole });
-      }
-    };
-
-    // Add event listener to detect changes in cookies
-    window.addEventListener("storage", handleCookieChange);
-
-    // Clean up event listener on component unmount
-    return () => {
-      window.removeEventListener("storage", handleCookieChange);
-    };
-  }, [user.uid, user.role]);
+    if ((newUser.uid !== user.uid || newUser.role !== user.role)) {
+      setUser({ uid: newUser.uid, role: newUser.role });
+    }
+  }, [newUser]);
 
   return (
-    <AuthContext.Provider value={{ user }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={{ user, dispatchAuth }}>{children}</AuthContext.Provider>
   );
 };
 
 export const useGlobalState = () => {
   return useContext(AuthContext);
 };
-
-
