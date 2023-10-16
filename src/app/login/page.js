@@ -40,8 +40,11 @@ const Login = () => {
   }
 
   useEffect(() => {
-    if (user.uid) {
-      router.replace('/')
+    if(user.isAuthFetched) {
+      if (user.uid) {
+        router.replace('/')
+        return
+      }
     }
   }, [user])
 

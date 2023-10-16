@@ -16,17 +16,26 @@ export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({
     uid: null,
     role: null,
+    isAuthFetched: false,
   });
 
   const newUser = getUser()
 
   const dispatchAuth = () => {
-    setUser(getUser())
+    setUser((prevState) => {
+      return {
+        ...prevState,
+        ...getUser(),
+        isAuthFetched: true
+      }
+    })
   }
 
   useEffect(() => {
     if ((newUser.uid !== user.uid || newUser.role !== user.role)) {
-      setUser({ uid: newUser.uid, role: newUser.role });
+      setUser({ uid: newUser.uid, role: newUser.role, isAuthFetched: true });
+    } else if(user.isAuthFetched === false) {
+      setUser((prevState) => ({...prevState, isAuthFetched: true}))
     }
   }, [newUser]);
 
