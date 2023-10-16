@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useGlobalState } from "@/context/store";
 import Spinner from "@/components/UI/Spinner";
+import axios from "axios";
 
 const AddProject = () => {
   const [title, setTitle] = useState("");
@@ -17,7 +18,7 @@ const AddProject = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(null);
 
-  const { user } = useGlobalState();
+  const { user, dispatchAuth } = useGlobalState();
   const router = useRouter();
 
   const titleChangeHandler = (event) => {
@@ -39,12 +40,66 @@ const AddProject = () => {
     setProjectSource(event.target.value);
   };
   const isFeaturedChangeHandler = (event) => {
-    seIsFeatured(event.target.value);
+    seIsFeatured((prevState) => {
+      return !prevState;
+    });
   };
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
+    const newTags = tags.split(",")
+    if(title.length < 2 || title.length> 255) {
+      setHasError("Title is required. Title should be in between 3-255 character long.")
+      return
+    }
+
+    if(description.length< 2 || description.length> 3000) {
+      setHasError("Description is required. Description should be in between 3-255 character long.")
+      return
+    }
+
+    if(image.length <= 0) {
+      setHasError("Image is required.")
+      return
+    }
+
+    if(newTags.length <= 0 || newTags> 10) {
+      setHasError('Tags is required. Tags should be no more than 10')
+      return
+    }
+    setHasError(true)
+
+    try {
+      setIsLoading(true)
+      const res = await axios.post('/api/admin/create-project', {title, description, image, tags: newTags, projectDemo, projectSource, isFeatured})
+      console.log(res)
+      setIsLoading(false)
+      router.push('/')
+    } catch(error) {
+      setIsLoading(false)
+      let errMsg = 'Something went wrong. Please try again';
+      if(error.response && error.response.data && error.response.data.error) {
+        errMsg = error.response.data.error;
+      }
+
+      setHasError(errMsg)
+      if(error.response.status === 403) {
+        dispatchAuth()
+      }
+    }
   }
+
+  useEffect(() => {
+    if(user.isAuthFetched) {
+      if(!user.uid) {
+        router.push('/login')
+        return
+      }
+      if(user.role !== 'admin') {
+        router.push('/')
+      }
+    }
+  }, [user])
 
   if (isLoading) {
     return (
@@ -86,16 +141,6 @@ const AddProject = () => {
             Description
           </label>
           <textarea rows={4} className="w-full px-4 py-2 text-white bg-white/20" name="description" id="description" onChange={descriptionChangeHandler} placeholder="Enter your description address here" value={description} required></textarea>
-          {/* <input
-            className="w-full text-black/80 rounded-sm px-4 py-2"
-            type="text"
-            name="description"
-            id="description"
-            placeholder="Enter your description address here"
-            required
-            value={description}
-            onChange={descriptionChangeHandler}
-          /> */}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -162,12 +207,12 @@ const AddProject = () => {
           />
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-row gap-2 items-center">
           <label className="text-white/70" htmlFor="isFeatured">
-            Is Featured Project
+            Is Featured
           </label>
           <input
-            className="w-full text-black/80 rounded-sm px-4 py-2"
+            className="text-black/80 rounded-sm px-4 py-2 h-fit"
             type="checkbox"
             name="isFeatured"
             id="isFeatured"
